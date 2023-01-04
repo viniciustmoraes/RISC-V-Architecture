@@ -1,0 +1,131 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/simulation/modelsim
+Ecpu
+Z1 w1668508606
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/CPU.vhd
+Z5 FC:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/CPU.vhd
+l0
+L24
+VSZXfIE>nX64^dZ;fBIH`H3
+!s100 3Vz7[93RGniBNXH^coSDk0
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1668508740
+!i10b 1
+Z8 !s108 1668508740.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/CPU.vhd|
+Z10 !s107 C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/CPU.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Abdf_type
+R2
+R3
+DEx4 work 3 cpu 0 22 SZXfIE>nX64^dZ;fBIH`H3
+l77
+L40
+V=R@:L^WjdKZ2Z2n8?j4m=1
+!s100 NB?QLz1]:TKDH;nLh7kzZ2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Edig2dec
+Z13 w1610443808
+Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R2
+R3
+R0
+Z15 8C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/dig2dec.vhd
+Z16 FC:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/dig2dec.vhd
+l0
+L5
+VhU]GSGeclh1Id52Y^1e=j0
+!s100 _i3]PoH9ml><<n05zKL570
+R6
+31
+R7
+!i10b 1
+R8
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/dig2dec.vhd|
+Z18 !s107 C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/dig2dec.vhd|
+!i113 1
+R11
+R12
+Artl
+R14
+R2
+R3
+DEx4 work 7 dig2dec 0 22 hU]GSGeclh1Id52Y^1e=j0
+l18
+L17
+VK5`O6n64jO:1DcV>I]6F31
+!s100 ZRDgfZUcZ?BoDhf;_Z5T93
+R6
+31
+R7
+!i10b 1
+R8
+R17
+R18
+!i113 1
+R11
+R12
+Eseg7_lut
+Z19 w1610464037
+R14
+R2
+R3
+R0
+Z20 8C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/SEG7_LUT.vhd
+Z21 FC:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/SEG7_LUT.vhd
+l0
+L5
+Vll9Qo4YYCmRJ<W_N70]f:2
+!s100 W288XM][GlgL8f9EcCk>22
+R6
+31
+R7
+!i10b 1
+R8
+Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/SEG7_LUT.vhd|
+Z23 !s107 C:/Users/libessare/Documents/Enseignement/2A/2A_NUM/Projet/CPU_Template_Project/SEG7_LUT.vhd|
+!i113 1
+R11
+R12
+Artl
+R14
+R2
+R3
+DEx4 work 8 seg7_lut 0 22 ll9Qo4YYCmRJ<W_N70]f:2
+l14
+L13
+V5Ld4[_n;>MYTE?V[:Lig43
+!s100 ncB=Ik[^TR=YhJF7G1`TB0
+R6
+31
+R7
+!i10b 1
+R8
+R22
+R23
+!i113 1
+R11
+R12
