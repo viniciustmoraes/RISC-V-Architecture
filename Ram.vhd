@@ -9,7 +9,7 @@ entity ram is
 			rw,en		:	in std_logic;
 			clk		:	in std_logic;
 			rst		:	in std_logic;
-			Adress	:	in std_logic_vector(11 downto 0);  -- 12 bits address, meaning a 4096  registers long memory
+			Adress	:	in std_logic_vector(7 downto 0);  -- 12 bits address, meaning a 4096  registers long memory
 			Data_in	:	in std_logic_vector(31 downto 0); -- Data is defined here as being 32 bits long
 			Data_out:	out std_logic_vector(31 downto 0) -- Data is defined here as being 32 bits long
 			);
@@ -17,7 +17,7 @@ end ram;
 
 architecture ram_a of ram is
 
-type ram is array(0 to 4095) of std_logic_vector(31 downto 0);
+type ram is array(0 to 256) of std_logic_vector(31 downto 0);
 
 signal Data_Ram : ram ;
 
@@ -31,7 +31,7 @@ begin
 		
 		if rst='1' then
 		
-			for k in 0 to 4095 loop
+			for k in 0 to 256 loop
 				Data_Ram(k) <= (others=>'0');
 			end loop;
 		
