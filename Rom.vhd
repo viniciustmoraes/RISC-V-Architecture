@@ -10,13 +10,13 @@ entity rom is
 			clk		:	in std_logic;
 			rst		:	in std_logic;
 			Adress	:	in std_logic_vector(7 downto 0);
-			Data_out:	out std_logic_vector(7 downto 0)
+			Data_out:	out std_logic_vector(31 downto 0) -- We choose 32 bits for the instructions 
 			);
 end rom;
 
 architecture rom_a of rom is
 
-type rom is array(0 to 255) of std_logic_vector(7 downto 0);
+type rom is array(0 to 255) of std_logic_vector(31 downto 0);
 
 signal Data_Rom : rom ;
 
