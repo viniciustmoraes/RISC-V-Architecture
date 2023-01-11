@@ -9,9 +9,9 @@ entity Fetch is
 			en			:	in std_logic;
 			clk		:	in std_logic;
 			rst		:	in std_logic;
-			PC_load	:	in std_logic;
-			PC_Jump	:	in std_logic_vector(7 downto 0);
-			PC_out	:	out std_logic_vector(7 downto 0)
+			PC_load	:	in std_logic;	-- "Enable" for jump functions. Must come from the decoder
+			PC_Jump	:	in std_logic_vector(7 downto 0);	-- Jump address. Comes from the decoder
+			PC_out	:	out std_logic_vector(7 downto 0)	-- Final program counter, outputed by the fetch
 			);
 end Fetch;
 
