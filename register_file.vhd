@@ -9,17 +9,17 @@ entity RegisterFile is
 			clk		:	in std_logic;
 			Addr 	:	in std_logic_vector(4 downto 0); -- 32 Registers, therefore 5 bit addresses
 			rw,en,rst	:	in std_logic;
-			Data_in	:	in std_logic_vector(31 downto 0); -- Each register holds 32 bit information
+			Data_in	:	in signed(31 downto 0); -- Each register holds 32 bit information
 			AddrRA	:	in std_logic_vector(4 downto 0);
 			AddrRB	:	in std_logic_vector(4 downto 0);
-			OutA	:	out std_logic_vector(31 downto 0);
-			OutB	:	out std_logic_vector(31 downto 0)
+			OutA	:	out signed(31 downto 0);
+			OutB	:	out signed(31 downto 0)
 			);
 end RegisterFile;
 
 architecture register_file of RegisterFile is
 
-type registers is array(0 to 31) of std_logic_vector(31 downto 0);
+type registers is array(0 to 31) of signed(31 downto 0);
 
 signal Data_Register : registers ;
 
