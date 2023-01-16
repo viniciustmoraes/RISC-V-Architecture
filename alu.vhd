@@ -42,11 +42,12 @@ Process(clk)
 					when "0110" => ResultALU <= not Y; -- NOT B
 					when "0111" => ResultALU <= to_signed((to_integer(X)*to_integer(Y)),32); -- MUL (maybe treat carryout for this as well?)
 					when "1000" => ResultALU <= (others => '0'); -- CLR
-					when "1001" => ResultALU <= (others => '0'); -- NOP (do nothing)
-					when "1010" => ResultALU <= X; -- MOV
+					when "1001" => ResultALU <= NULL; -- NOP (do nothing)
+					when "1010" => ResultALU <= X; -- MOV A
 					when "1011" => ResultALU <= signed(unsigned(X) sll to_integer(Y)); -- SLLI
 					when "1100" => ResultALU <= signed(unsigned(X) srl to_integer(Y)); -- SRLI
-					when others => ResultALU <= (others => '0'); -- do nothing
+					when "1101" => ResultALU <= Y; -- MOV B
+					when others => ResultALU <= NULL; -- do nothing
 				
 				-- Obs: Some ISA functions are not described because they use these functions in their process
 				-- Examples: Conditional jumps, jump, write and read from RAM.
