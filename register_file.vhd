@@ -8,7 +8,7 @@ entity RegisterFile is
 	port(
 			clk		:	in std_logic;
 			Addr 	:	in std_logic_vector(4 downto 0); -- 32 Registers, therefore 5 bit addresses
-			rw,en,rst	:	in std_logic;
+			r,w,en,rst	:	in std_logic;
 			Data_in	:	in signed(31 downto 0); -- Each register holds 32 bit information
 			AddrRA	:	in std_logic_vector(4 downto 0);
 			AddrRB	:	in std_logic_vector(4 downto 0);
@@ -40,10 +40,11 @@ begin
 		else
 			if rising_edge(clk) then
 				if en='1' then
-					if(rw='1') then 
+					if(r='1') then 
 						OutA <= Data_Register(to_integer(unsigned(AddrRA)));
 						OutB <= Data_Register(to_integer(unsigned(AddrRB)));
-					else
+					end if;
+					if(w='1') then
 						Data_Register(to_integer(unsigned(Addr))) <= Data_in;
 					end if;
 				end if;
