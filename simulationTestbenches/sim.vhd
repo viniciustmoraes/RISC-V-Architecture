@@ -10,8 +10,7 @@ END sim;
 ARCHITECTURE bdf_type OF sim IS 
 
 COMPONENT alu
-	PORT(clk : IN STD_LOGIC;
-		 SelOp : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	PORT(SelOp : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 X : IN signed(31 DOWNTO 0);
 		 Y : IN signed(31 DOWNTO 0);
 		 OutALU : OUT signed(31 DOWNTO 0);
@@ -37,7 +36,7 @@ SIGNAL	SYNTHESIZED_WIRE_0 :  SIGNED(31 DOWNTO 0);
 SIGNAL	SYNTHESIZED_WIRE_1 :  SIGNED(31 DOWNTO 0);
 
 -- inputs
-signal clk: std_logic;
+signal clk: std_logic:='0';
 signal rw, en, rst: std_logic;
 signal Data_in: signed(31 downto 0);
 signal Addr, AddrRA, AddrRB: std_logic_vector(4 downto 0);
@@ -51,7 +50,6 @@ BEGIN
 alu_inst: alu
 PORT MAP(X => SYNTHESIZED_WIRE_0,
 		 Y => SYNTHESIZED_WIRE_1,
-		 clk => clk,
 		 SelOp => SelOP,
 		 OutALU => OutALU,
 		 Status => Status);

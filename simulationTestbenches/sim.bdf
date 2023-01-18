@@ -21,7 +21,7 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "graphic" (version "1.4"))
 (symbol
-	(rect 848 232 1056 344)
+	(rect 712 232 920 344)
 	(text "ALU" (rect 5 0 26 12)(font "Arial" ))
 	(text "inst" (rect 8 96 28 108)(font "Arial" ))
 	(port
@@ -149,12 +149,12 @@ https://fpgasoftware.intel.com/eula.
 	)
 )
 (connector
-	(pt 560 296)
-	(pt 848 296)
+	(pt 560 280)
+	(pt 712 280)
 	(bus)
 )
 (connector
-	(pt 560 280)
-	(pt 848 280)
+	(pt 560 296)
+	(pt 712 296)
 	(bus)
 )
