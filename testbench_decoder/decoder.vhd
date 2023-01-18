@@ -6,28 +6,28 @@ Use ieee.numeric_std.all ;
 
 entity decoder is
 	port(
-		clk		       :	in std_logic;
-		Status          :   in std_logic_vector(2 downto 0); -- Status from ALU (3 bits: CarryOut, isZero, isPositive)
-		PC_now          :   in std_logic_vector(7 downto 0);
+			clk		       :	in std_logic;
+			Status          :   in std_logic_vector(2 downto 0); -- Status from ALU (3 bits: CarryOut, isZero, isPositive)
+			PC_now          :   in std_logic_vector(7 downto 0);
          Instruction     :   in std_logic_vector(31 downto 0); -- Instructions coming from ROM
 
-        SelOp : out std_logic_vector(3 downto 0); -- Selects operation to perform in the ALU
-        SelMuxRam : out std_logic; -- Selects whether to use value from RAM or from ALU
-        SelMuxImm : out std_logic; -- Selects whether to use an immediate or OutB from the RegisterFile in the ALU
+         SelOp : out std_logic_vector(3 downto 0); -- Selects operation to perform in the ALU
+         SelMuxRam : out std_logic; -- Selects whether to use value from RAM or from ALU
+         SelMuxImm : out std_logic; -- Selects whether to use an immediate or OutB from the RegisterFile in the ALU
             
-		Imm : out signed(31 downto 0); -- Immediate given in the instruction
+			Imm : out signed(31 downto 0); -- Immediate given in the instruction
 
-        AddrRAM : out std_logic_vector(7 downto 0); -- Address to be accessed in the RAM
+         AddrRAM : out std_logic_vector(7 downto 0); -- Address to be accessed in the RAM
 			
-        PC_load	        :	out std_logic;	-- Determines if a JUMP operation is taking place
-		PC_Jump	        :	out std_logic_vector(7 downto 0);	-- In case of a JUMP operation, specifies the destination
+         PC_load	        :	out std_logic;	-- Determines if a JUMP operation is taking place
+			PC_Jump	        :	out std_logic_vector(7 downto 0);	-- In case of a JUMP operation, specifies the destination
 
-        EnRegFile, EnRAM, EnROM     :   out std_logic;
-        rRegFile, wRegFile, rwRAM   :   out std_logic;
-        AddrRA, AddrRB              :   out std_logic_vector(4 downto 0); -- Addresses of RA and RB in the RegisterFile (read)
-        AddrRdest                   : out std_logic_vector(4 downto 0) -- Address of Rdest in the RegisterFile (store)
+         EnRegFile, EnRAM, EnROM     :   out std_logic;
+         rRegFile, wRegFile, rwRAM   :   out std_logic;
+         AddrRA, AddrRB              :   out std_logic_vector(4 downto 0); -- Addresses of RA and RB in the RegisterFile (read)
+         AddrRdest                   : out std_logic_vector(4 downto 0) -- Address of Rdest in the RegisterFile (store)
         
-		);
+		  );
 		  
 end entity decoder;
 
