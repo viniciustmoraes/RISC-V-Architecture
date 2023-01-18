@@ -23,7 +23,7 @@ signal tmp : signed(32 downto 0);
 --------------- BEGIN -----------------------------------------------------------------
 Begin
 
-Process(X,Y,SelOp)
+Process(X,Y,SelOp,ResultALU)
 		begin
 			tmp <= (others => '0');
 			case(SelOp) is -- Selection of the operation done by the ALU between the preset functions in the ISA
