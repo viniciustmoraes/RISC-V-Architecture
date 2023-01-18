@@ -6,7 +6,7 @@ Use ieee.numeric_std.all ;
 
 entity ram is
 	port(
-			rw,en		:	in std_logic;
+			r,w,en		:	in std_logic;
 			clk		:	in std_logic;
 			rst		:	in std_logic;
 			Adress	:	in std_logic_vector(7 downto 0); -- 8 bits address, meaning 128 rows = 4 kb
@@ -36,10 +36,14 @@ begin
 		else
 			if rising_edge(clk) then
 				if en='1' then
-					if(rw='1') then 
+					if(r='1') then 
 						Data_out <= Data_Ram(to_integer(unsigned(Adress)));
-					else
+					elsif(r='0') then 
+						NULL;
+					elsif(w='1') then
 						Data_Ram(to_integer(unsigned(Adress))) <= Data_in;
+					elsif(w='0') then
+						NULL;
 					end if;
 				end if;
 			end if;
