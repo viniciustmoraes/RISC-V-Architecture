@@ -28,9 +28,9 @@ begin
 
 	-- read-only-memory contents
 	Data_Rom <= (
-		0 => x"0000_1111", -- instruction 0x01
-		1 => x"0000_ABCD", -- instruction 0x02
-		2 => x"AAAA_0000", -- ...
+		0 => 32b"000000000111_00000_00010_0000_01", -- instruction 0x01
+		1 => 32b"000000000101_00000_00001_0000_01", -- instruction 0x02
+		2 => 32b"00001_00010_00011_0000_00", -- ...
 		3 => x"0000_AE00",
 		4 => x"FFFF_FFFF",
 		5 => x"1010_0101",
