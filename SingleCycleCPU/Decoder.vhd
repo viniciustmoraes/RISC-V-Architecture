@@ -12,7 +12,7 @@ entity Decoder is
 	);
 	port(
 		-- inputs
-		Status: in std_logic_vector(2 downto 0); -- ALU status (3 bits: (0) CarryOut, (1) isZero, (2) isPositive)
+		Status: in std_logic_vector(2 downto 0); -- ALU status (3 bits: (2) CarryOut, (1) isZero, (0) isPositive)
 		PC_now: in std_logic_vector(ROM_addr_width-1 downto 0);
 		Instr: in std_logic_vector(31 downto 0); -- instruction from ROM
 		SelOp: out std_logic_vector(3 downto 0); -- ALU select operation
@@ -107,24 +107,45 @@ begin
 				end if;
 						
 			when "11" => -- [RA, RB,] fonction 
-				if (Operator = "0000") then -- BEQ
-					SelOp <= "0001"; -- subtract RA from RB
+					SelOp <= "0001"; -- subtract RA - RB
 					we_RegFile <= '0';
 					we_RAM <= '0';
 					selImm <= '0';
-					AddrRB <= Instr(10 downto 6);
-					AddrRA <= Instr(15 downto 11);
+					AddrRA <= Instr(10 downto 6);
+					AddrRB <= Instr(15 downto 11);
 					Imm12 <= Instr(27 downto 16); -- ROM address of the branching function
 					
+					if (Operator = "0000") then
+					-- BEQ (branch if equal)
 					-- combinational statement to define PC_Load before next clock rising edge
-					if Status(1) = '1' then
-						-- Status(1) = isZero
-						PC_Load <= '1';
-					else
-						PC_Load <= '0';
+						if Status(1) = '1' then -- isZero
+							PC_Load <= '1';
+						else
+							PC_Load <= '0';
+						end if;
+					elsif (Operator = "0001") then
+					-- BGE (branch if greater or equal)
+						if (Status(0) = '1') or (Status(1) = '1') then -- isPositive or isZero
+							PC_Load <= '1';
+						else
+							PC_Load <= '0';
+						end if;
+					elsif (Operator = "0010") then
+					-- BNE (branch if not equal)
+						if (Status(1) = '0') then -- NOT isZero
+							PC_Load <= '1';
+						else
+							PC_Load <= '0';
+						end if;
+					elsif (Operator = "0110") then
+					-- BLT (branch if less than)
+						if (Status(0) = '0') and (Status(1) = '0') then -- (NOT isPositive) and (NOT isZero)
+							PC_Load <= '1';
+						else
+							PC_Load <= '0';
+						end if;
 					end if;
-				end if;
-			
+					
 			when others =>
 				SelOp <= Operator;
 				AddrRdest <= Instr(10 downto 6);

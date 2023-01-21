@@ -54,7 +54,7 @@ Process(X, Y, SelOp)
 			-- Treating Status components
 			Carryout <= std_logic(tmp(32)); -- Carryout from sum or sub
 			
-			if (to_integer(ResultALU) >= 0) then
+			if (to_integer(ResultALU) > 0) then
 			P <= '1';
 			else
 			P <= '0';
