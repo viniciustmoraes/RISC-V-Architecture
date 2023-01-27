@@ -67,7 +67,7 @@ begin
 					we_RegFile <= '1';
 					we_RAM <= '0';
 					
-				elsif (Operator = "1000") then -- NOP
+				elsif (Operator = "1001") then -- NOP
 					we_RegFile <= '0';
 					we_RAM <= '0';
 				end if;
@@ -89,7 +89,7 @@ begin
 					selRAM <= '0';
 					we_RegFile <= '1';
 					we_RAM <= '0';
-				elsif (Operator = "1101") then -- LW
+				elsif (Operator = "1101") then -- LW rdest, ra, offset
 					AddrRdest <= Instr(10 downto 6);
 					AddrRA <= Instr(15 downto 11); -- RAM address
 					Imm12 <= Instr(27 downto 16); -- offset
@@ -97,7 +97,7 @@ begin
 					selRAM <= '1';
 					we_RegFile <= '1';
 					we_RAM <= '0';
-				elsif (Operator = "1110") then -- SW
+				elsif (Operator = "1110") then -- SW ra, rdest, offset
 					AddrRB <= Instr(10 downto 6); -- value to be stored
 					AddrRA <= Instr(15 downto 11); -- RAM address
 					Imm12 <= Instr(27 downto 16); -- offset
