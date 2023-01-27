@@ -12,7 +12,7 @@ entity ROM is
 			);
 	port(
 			Adress	:	in std_logic_vector(addr_width-1 downto 0); -- We choose 32 possible ROM instructions
-			Switches:	in std_logic_vector(8 downto 0); -- We take 9 immediate values from the board switches
+			Switches:	in std_logic_vector(3 downto 0); -- We take 4 immediate values from the board switches
 			Data_out:	out std_logic_vector(31 downto 0) -- We choose 32 bits for the instructions 
 			);
 end ROM;
@@ -57,8 +57,8 @@ begin
 
 		if (format = "01") and (operator /= "1101") and (operator /= "1110") then -- Verifies if the format is 01, which implies the use of immediate values (switches)
 			Data_out(15 downto 0) <= current_data(15 downto 0);
-			Data_out(24 downto 16) <= Switches;
-			Data_out(31 downto 25) <= "0000000"; -- We only have 9 switches, which implies that the immediate values can only have 9 bits
+			Data_out(19 downto 16) <= Switches;
+			Data_out(31 downto 20) <= "000000000000"; 
 		
 		else
 			Data_out <= current_data;
