@@ -169,7 +169,7 @@ https://fpgasoftware.intel.com/eula.
 	(output)
 	(rect 1864 64 1880 240)
 	(text "OUTPUT" (rect 0 137 10 175)(font "Arial" (font_size 6))(vertical))
-	(text "Status[2..0]" (rect 1 5 13 68)(font "Arial" )(vertical))
+	(text "Status[2..0]" (rect 1 5 13 67)(font "Arial" )(vertical))
 	(pt 8 176)
 	(drawing
 		(line (pt 8 176)(pt 8 124))
@@ -186,7 +186,7 @@ https://fpgasoftware.intel.com/eula.
 	(output)
 	(rect 1616 216 1632 392)
 	(text "OUTPUT" (rect 0 137 10 175)(font "Arial" (font_size 6))(vertical))
-	(text "x[31..0]" (rect 0 5 12 48)(font "Arial" )(vertical))
+	(text "x[31..0]" (rect 0 5 12 47)(font "Arial" )(vertical))
 	(pt 8 176)
 	(drawing
 		(line (pt 8 176)(pt 8 124))
@@ -203,7 +203,7 @@ https://fpgasoftware.intel.com/eula.
 	(output)
 	(rect 1640 232 1656 408)
 	(text "OUTPUT" (rect 0 137 10 175)(font "Arial" (font_size 6))(vertical))
-	(text "y[31..0]" (rect 0 5 12 42)(font "Intel Clear" )(vertical))
+	(text "y[31..0]" (rect 0 5 12 41)(font "Intel Clear" )(vertical))
 	(pt 8 176)
 	(drawing
 		(line (pt 8 176)(pt 8 124))
@@ -220,7 +220,7 @@ https://fpgasoftware.intel.com/eula.
 	(output)
 	(rect 1912 216 1928 392)
 	(text "OUTPUT" (rect 0 137 10 175)(font "Arial" (font_size 6))(vertical))
-	(text "OutALU[31..0]" (rect 1 5 13 81)(font "Arial" )(vertical))
+	(text "OutALU[31..0]" (rect 1 5 13 80)(font "Arial" )(vertical))
 	(pt 8 176)
 	(drawing
 		(line (pt 8 176)(pt 8 124))
@@ -585,34 +585,6 @@ https://fpgasoftware.intel.com/eula.
 	(annotation_block (parameter)(rect 208 528 416 558))
 )
 (symbol
-	(rect 504 376 768 456)
-	(text "ROM" (rect 5 0 30 12)(font "Arial" ))
-	(text "inst2" (rect 8 64 32 76)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "Addr_in[(addr_width-1)..0]" (rect 0 0 140 12)(font "Arial" ))
-		(text "Addr_in[(addr_width-1)..0]" (rect 21 27 161 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 264 32)
-		(output)
-		(text "Data_out[31..0]" (rect 0 0 83 12)(font "Arial" ))
-		(text "Data_out[31..0]" (rect 173 27 256 39)(font "Arial" ))
-		(line (pt 264 32)(pt 248 32)(line_width 3))
-	)
-	(parameter
-		"addr_width"
-		"8"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 248 64))
-	)
-	(annotation_block (parameter)(rect 544 464 722 494))
-)
-(symbol
 	(rect 472 72 752 152)
 	(text "BusSplitter" (rect 216 0 275 12)(font "Arial" ))
 	(text "inst9" (rect 248 64 272 76)(font "Intel Clear" ))
@@ -745,6 +717,41 @@ https://fpgasoftware.intel.com/eula.
 		(rectangle (rect 16 16 280 192))
 	)
 	(annotation_block (parameter)(rect 864 288 1072 318))
+)
+(symbol
+	(rect 504 376 768 456)
+	(text "ROM" (rect 5 0 30 12)(font "Arial" ))
+	(text "inst2" (rect 8 64 35 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Adress[(addr_width-1)..0]" (rect 0 0 135 12)(font "Arial" ))
+		(text "Adress[(addr_width-1)..0]" (rect 21 27 156 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "Switches[8..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "Switches[8..0]" (rect 21 43 97 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "Data_out[31..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "Data_out[31..0]" (rect 173 27 243 39)(font "Arial" ))
+		(line (pt 264 32)(pt 248 32)(line_width 3))
+	)
+	(parameter
+		"addr_width"
+		"8"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 248 64))
+	)
+	(annotation_block (parameter)(rect 536 496 714 526))
 )
 (connector
 	(pt 776 360)
