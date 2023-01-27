@@ -19,7 +19,7 @@ end ROM;
 
 architecture rom_a of ROM is
 
-type rom is array(0 to 31) of std_logic_vector(31 downto 0);
+type rom is array(0 to 2**addr_width-1) of std_logic_vector(31 downto 0);
 
 signal Data_Rom : rom ;
 signal current_data : std_logic_vector(31 downto 0);
