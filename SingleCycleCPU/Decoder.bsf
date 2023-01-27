@@ -1,0 +1,127 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 312 224)
+	(text "Decoder" (rect 5 0 39 12)(font "Arial" ))
+	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Status[2..0]" (rect 0 0 44 12)(font "Arial" ))
+		(text "Status[2..0]" (rect 21 27 65 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "PC_now[(rom_addr_width-1)..0]" (rect 0 0 127 12)(font "Arial" ))
+		(text "PC_now[(rom_addr_width-1)..0]" (rect 21 43 148 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "Instr[31..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "Instr[31..0]" (rect 21 59 62 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 296 32)
+		(output)
+		(text "SelOp[3..0]" (rect 0 0 43 12)(font "Arial" ))
+		(text "SelOp[3..0]" (rect 232 27 275 39)(font "Arial" ))
+		(line (pt 296 32)(pt 280 32)(line_width 3))
+	)
+	(port
+		(pt 296 48)
+		(output)
+		(text "AddrRA[4..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "AddrRA[4..0]" (rect 216 43 275 55)(font "Arial" ))
+		(line (pt 296 48)(pt 280 48)(line_width 3))
+	)
+	(port
+		(pt 296 64)
+		(output)
+		(text "AddrRB[4..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "AddrRB[4..0]" (rect 219 59 275 71)(font "Arial" ))
+		(line (pt 296 64)(pt 280 64)(line_width 3))
+	)
+	(port
+		(pt 296 80)
+		(output)
+		(text "AddrRdest[4..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "AddrRdest[4..0]" (rect 208 75 275 87)(font "Arial" ))
+		(line (pt 296 80)(pt 280 80)(line_width 3))
+	)
+	(port
+		(pt 296 96)
+		(output)
+		(text "Imm32[31..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "Imm32[31..0]" (rect 224 91 275 103)(font "Arial" ))
+		(line (pt 296 96)(pt 280 96)(line_width 3))
+	)
+	(port
+		(pt 296 112)
+		(output)
+		(text "selImm" (rect 0 0 29 12)(font "Arial" ))
+		(text "selImm" (rect 246 107 275 119)(font "Arial" ))
+		(line (pt 296 112)(pt 280 112)(line_width 1))
+	)
+	(port
+		(pt 296 128)
+		(output)
+		(text "selRAM" (rect 0 0 35 12)(font "Arial" ))
+		(text "selRAM" (rect 240 123 275 135)(font "Arial" ))
+		(line (pt 296 128)(pt 280 128)(line_width 1))
+	)
+	(port
+		(pt 296 144)
+		(output)
+		(text "we_RegFile" (rect 0 0 47 12)(font "Arial" ))
+		(text "we_RegFile" (rect 228 139 275 151)(font "Arial" ))
+		(line (pt 296 144)(pt 280 144)(line_width 1))
+	)
+	(port
+		(pt 296 160)
+		(output)
+		(text "we_RAM" (rect 0 0 41 12)(font "Arial" ))
+		(text "we_RAM" (rect 234 155 275 167)(font "Arial" ))
+		(line (pt 296 160)(pt 280 160)(line_width 1))
+	)
+	(port
+		(pt 296 176)
+		(output)
+		(text "PC_Load" (rect 0 0 38 12)(font "Arial" ))
+		(text "PC_Load" (rect 237 171 275 183)(font "Arial" ))
+		(line (pt 296 176)(pt 280 176)(line_width 1))
+	)
+	(parameter
+		"ROM_addr_width"
+		"8"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 280 192)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 312 -64 412 16))
+)
