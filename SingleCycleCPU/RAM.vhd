@@ -15,10 +15,10 @@ entity RAM is
 			we 		:	in std_logic; -- Write Enable (we)
 			rst		:	in std_logic; -- Reset (rst)
 			Adress	:	in std_logic_vector(address_width-1 downto 0); -- 8 bits address, meaning 256 rows * 32 bits = 8 KB
-			Adress2 :   in std_logic_vector(address_width-1 downto 0);
+			AdressB :   in std_logic_vector(address_width-1 downto 0);
 			Data_in	:	in std_logic_vector(31 downto 0); -- Data is defined here as being 32 bits long
 			Data_out:	out std_logic_vector(31 downto 0); -- Data is defined here as being 32 bits long
-			Data_out2 : out std_logic_vector(31 downto 0)   -- Output port for 7 segment display reading	
+			Data_outB : out std_logic_vector(31 downto 0)   -- Output port for 7 segment display reading	
 			);
 end RAM;
 
@@ -37,7 +37,7 @@ signal Data_Ram : ram ;
 begin
 	-- read from RAM (async)
 	Data_out <= Data_Ram(to_integer(unsigned(Adress)));
-	Data_out2 <= Data_Ram(to_integer(unsigned(Adress2)));
+	Data_outB <= Data_Ram(to_integer(unsigned(AdressB)));
 
 	-- write to RAM (sync)
 	write_to_RAM:process(rst, clk) begin
