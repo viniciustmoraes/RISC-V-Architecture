@@ -5,7 +5,7 @@ Use ieee.numeric_std.all ;
 
 entity ROM is
 	generic(
-			addr_width: integer := 8
+			addr_width: integer := 5
 			-- ROM address width, in bits
 			-- determines the number of rows (2^addr_width)
 			);

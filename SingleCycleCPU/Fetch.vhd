@@ -5,7 +5,7 @@ Use ieee.numeric_std.all ;
 
 entity Fetch is
 	generic(
-			ROM_addr_width: integer := 8
+			ROM_addr_width: integer := 5
 			-- ROM address width, in bits
 			-- determines the number of rows in the ROM (2^addr_width)
 			-- example: width=8 --> 256 rows
