@@ -66,7 +66,7 @@ begin
 		if (AddrDisplay = b"00000") then
 			OutDisplay <= x"00000000"; -- address x0 always outputs 0
 		else
-			OutDisplay <= Data_Register(to_integer(unsigned(AddrRB)));
+			OutDisplay <= Data_Register(to_integer(unsigned(AddrDisplay)));
 		end if;
 	end process displayReading;
 
