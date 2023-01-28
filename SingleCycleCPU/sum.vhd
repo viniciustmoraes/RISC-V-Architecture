@@ -14,7 +14,7 @@ end sum;
 architecture sum_a of sum is
 
 begin
-	Out1 <= x"00" & std_logic_vector(signed(In1) + 1);
+	Out1 <= std_logic_vector(resize((unsigned(In1) + 1),32));
 	
 
 

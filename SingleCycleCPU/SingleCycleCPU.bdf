@@ -263,14 +263,14 @@ refer to the applicable agreement for further details.
 		(pt 208 32)
 		(output)
 		(text "OutA[31..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "OutA[31..0]" (rect 140 27 187 39)(font "Arial" ))
+		(text "OutA[31..0]" (rect 140 27 196 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
 	)
 	(port
 		(pt 208 48)
 		(output)
 		(text "OutB[31..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "OutB[31..0]" (rect 140 43 187 55)(font "Arial" ))
+		(text "OutB[31..0]" (rect 140 43 196 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48)(line_width 3))
 	)
 	(drawing
@@ -306,14 +306,14 @@ refer to the applicable agreement for further details.
 		(pt 208 32)
 		(output)
 		(text "OutALU[31..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "OutALU[31..0]" (rect 128 27 187 39)(font "Arial" ))
+		(text "OutALU[31..0]" (rect 128 27 198 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
 	)
 	(port
 		(pt 208 48)
 		(output)
 		(text "Status[2..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "Status[2..0]" (rect 139 43 187 55)(font "Arial" ))
+		(text "Status[2..0]" (rect 139 43 196 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48)(line_width 3))
 	)
 	(drawing
@@ -349,7 +349,7 @@ refer to the applicable agreement for further details.
 		(pt 112 48)
 		(output)
 		(text "result[WIDTH-1..0]" (rect 75 35 177 49)(font "Arial" (font_size 8)))
-		(text "result[]" (rect 75 35 107 49)(font "Arial" (font_size 8)))
+		(text "result[]" (rect 75 35 113 49)(font "Arial" (font_size 8)))
 		(line (pt 68 48)(pt 112 48)(line_width 3))
 	)
 	(parameter
@@ -397,7 +397,7 @@ refer to the applicable agreement for further details.
 		(pt 0 40)
 		(output)
 		(text "result[WIDTH-1..0]" (rect 75 35 177 49)(font "Arial" (font_size 8)))
-		(text "result[]" (rect 5 39 37 53)(font "Arial" (font_size 8)))
+		(text "result[]" (rect 5 39 43 53)(font "Arial" (font_size 8)))
 		(line (pt 44 40)(pt 0 40)(line_width 3))
 	)
 	(parameter
@@ -432,7 +432,7 @@ refer to the applicable agreement for further details.
 		(pt 280 32)
 		(output)
 		(text "LSBits_out[(address_width-1)..0]" (rect 0 0 159 12)(font "Arial" ))
-		(text "LSBits_out[(address_width-1)..0]" (rect 125 27 259 39)(font "Arial" ))
+		(text "LSBits_out[(address_width-1)..0]" (rect 125 27 284 39)(font "Arial" ))
 		(line (pt 280 32)(pt 264 32)(line_width 3))
 	)
 	(parameter
@@ -488,7 +488,7 @@ refer to the applicable agreement for further details.
 		(pt 280 32)
 		(output)
 		(text "Data_out[31..0]" (rect 0 0 76 12)(font "Arial" ))
-		(text "Data_out[31..0]" (rect 195 27 259 39)(font "Arial" ))
+		(text "Data_out[31..0]" (rect 195 27 271 39)(font "Arial" ))
 		(line (pt 280 32)(pt 264 32)(line_width 3))
 	)
 	(parameter
@@ -500,132 +500,6 @@ refer to the applicable agreement for further details.
 		(rectangle (rect 16 16 264 128))
 	)
 	(annotation_block (parameter)(rect 2504 304 2699 334))
-)
-(symbol
-	(rect 816 312 1104 584)
-	(text "Decoder" (rect 5 0 46 12)(font "Arial" ))
-	(text "inst4" (rect 8 256 31 268)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "Status[2..0]" (rect 0 0 57 12)(font "Arial" ))
-		(text "Status[2..0]" (rect 21 27 78 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "PC_now[rom_addr_width-1..0]" (rect 0 0 146 12)(font "Arial" ))
-		(text "PC_now[rom_addr_width-1..0]" (rect 21 43 167 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "Instr[31..0]" (rect 0 0 54 12)(font "Arial" ))
-		(text "Instr[31..0]" (rect 21 59 75 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 288 32)
-		(output)
-		(text "SelOp[3..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "SelOp[3..0]" (rect 221 27 267 39)(font "Arial" ))
-		(line (pt 288 32)(pt 272 32)(line_width 3))
-	)
-	(port
-		(pt 288 48)
-		(output)
-		(text "AddrRA[4..0]" (rect 0 0 63 12)(font "Arial" ))
-		(text "AddrRA[4..0]" (rect 214 43 267 55)(font "Arial" ))
-		(line (pt 288 48)(pt 272 48)(line_width 3))
-	)
-	(port
-		(pt 288 64)
-		(output)
-		(text "AddrRB[4..0]" (rect 0 0 63 12)(font "Arial" ))
-		(text "AddrRB[4..0]" (rect 214 59 267 71)(font "Arial" ))
-		(line (pt 288 64)(pt 272 64)(line_width 3))
-	)
-	(port
-		(pt 288 80)
-		(output)
-		(text "AddrRdest[4..0]" (rect 0 0 77 12)(font "Arial" ))
-		(text "AddrRdest[4..0]" (rect 202 75 267 87)(font "Arial" ))
-		(line (pt 288 80)(pt 272 80)(line_width 3))
-	)
-	(port
-		(pt 288 96)
-		(output)
-		(text "Imm32[31..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "Imm32[31..0]" (rect 212 91 267 103)(font "Arial" ))
-		(line (pt 288 96)(pt 272 96)(line_width 3))
-	)
-	(port
-		(pt 288 112)
-		(output)
-		(text "selImm" (rect 0 0 36 12)(font "Arial" ))
-		(text "selImm" (rect 237 107 267 119)(font "Arial" ))
-		(line (pt 288 112)(pt 272 112))
-	)
-	(port
-		(pt 288 128)
-		(output)
-		(text "selRAM" (rect 0 0 37 12)(font "Arial" ))
-		(text "selRAM" (rect 236 123 267 135)(font "Arial" ))
-		(line (pt 288 128)(pt 272 128))
-	)
-	(port
-		(pt 288 144)
-		(output)
-		(text "selRET" (rect 0 0 35 12)(font "Arial" ))
-		(text "selRET" (rect 238 139 267 151)(font "Arial" ))
-		(line (pt 288 144)(pt 272 144))
-	)
-	(port
-		(pt 288 160)
-		(output)
-		(text "we_RegFile" (rect 0 0 56 12)(font "Arial" ))
-		(text "we_RegFile" (rect 220 155 267 167)(font "Arial" ))
-		(line (pt 288 160)(pt 272 160))
-	)
-	(port
-		(pt 288 176)
-		(output)
-		(text "we_RAM" (rect 0 0 42 12)(font "Arial" ))
-		(text "we_RAM" (rect 232 171 267 183)(font "Arial" ))
-		(line (pt 288 176)(pt 272 176))
-	)
-	(port
-		(pt 288 192)
-		(output)
-		(text "PC_Load" (rect 0 0 44 12)(font "Arial" ))
-		(text "PC_Load" (rect 230 187 267 199)(font "Arial" ))
-		(line (pt 288 192)(pt 272 192))
-	)
-	(port
-		(pt 288 208)
-		(output)
-		(text "selrp[1..0]" (rect 0 0 49 12)(font "Arial" ))
-		(text "selrp[1..0]" (rect 226 203 267 215)(font "Arial" ))
-		(line (pt 288 208)(pt 272 208)(line_width 3))
-	)
-	(port
-		(pt 288 224)
-		(output)
-		(text "selJAL" (rect 0 0 33 12)(font "Arial" ))
-		(text "selJAL" (rect 240 219 267 231)(font "Arial" ))
-		(line (pt 288 224)(pt 272 224))
-	)
-	(parameter
-		"ROM_addr_width"
-		"8"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 272 256))
-	)
-	(annotation_block (parameter)(rect 864 272 1072 302))
 )
 (symbol
 	(rect 472 72 752 152)
@@ -642,7 +516,7 @@ refer to the applicable agreement for further details.
 		(pt 0 32)
 		(output)
 		(text "LSBits_out[(address_width-1)..0]" (rect 0 0 159 12)(font "Arial" ))
-		(text "LSBits_out[(address_width-1)..0]" (rect 21 27 155 39)(font "Arial" ))
+		(text "LSBits_out[(address_width-1)..0]" (rect 21 27 180 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(parameter
@@ -655,55 +529,6 @@ refer to the applicable agreement for further details.
 	)
 	(flipy)
 	(annotation_block (parameter)(rect 472 24 664 62))
-)
-(symbol
-	(rect -184 248 -96 360)
-	(text "BUSMUX" (rect 0 28 16 91)(font "Arial" (font_size 10))(vertical))
-	(text "inst10" (rect 77 3 91 37)(font "Arial" (font_size 8))(vertical))
-	(port
-		(pt 64 0)
-		(input)
-		(text "datab[WIDTH-1..0]" (rect 6 51 108 65)(font "Arial" (font_size 8)))
-		(text "datab[]" (rect 51 6 65 44)(font "Arial" (font_size 8))(vertical))
-		(line (pt 64 0)(pt 64 44)(line_width 3))
-	)
-	(port
-		(pt 88 56)
-		(input)
-		(text "sel" (rect 59 70 75 84)(font "Arial" (font_size 8)))
-		(text "sel" (rect 70 59 84 75)(font "Arial" (font_size 8))(vertical))
-		(line (pt 88 56)(pt 72 56))
-	)
-	(port
-		(pt 32 0)
-		(input)
-		(text "dataa[WIDTH-1..0]" (rect 6 19 108 33)(font "Arial" (font_size 8)))
-		(text "dataa[]" (rect 19 6 33 44)(font "Arial" (font_size 8))(vertical))
-		(line (pt 32 0)(pt 32 44)(line_width 3))
-	)
-	(port
-		(pt 48 112)
-		(output)
-		(text "result[WIDTH-1..0]" (rect 75 35 177 49)(font "Arial" (font_size 8)))
-		(text "result[]" (rect 35 75 49 107)(font "Arial" (font_size 8))(vertical))
-		(line (pt 48 68)(pt 48 112)(line_width 3))
-	)
-	(parameter
-		"WIDTH"
-		"32"
-		"Width of I/O, any integer > 0"
-		" 1" " 2" " 3" " 4" " 5" " 6" " 7" " 8" " 9" "10" "11" "12" "13" "14" "15" "16" "20" "24" "28" "32" "40" "48" "56" "64" 
-	)
-	(drawing
-		(text "0" (rect 31 52 41 56)(font "Arial" (font_size 6))(vertical))
-		(text "1" (rect 55 52 65 56)(font "Arial" (font_size 6))(vertical))
-		(line (pt 64 68)(pt 32 68))
-		(line (pt 80 44)(pt 16 44))
-		(line (pt 16 44)(pt 32 68))
-		(line (pt 80 44)(pt 64 68))
-	)
-	(flipy_rotate90)
-	(annotation_block (parameter)(rect -80 328 43 358))
 )
 (symbol
 	(rect 704 712 880 792)
@@ -720,7 +545,7 @@ refer to the applicable agreement for further details.
 		(pt 176 32)
 		(output)
 		(text "Out1[31..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "Out1[31..0]" (rect 109 27 155 39)(font "Arial" ))
+		(text "Out1[31..0]" (rect 109 27 164 39)(font "Arial" ))
 		(line (pt 176 32)(pt 160 32)(line_width 3))
 	)
 	(drawing
@@ -756,7 +581,7 @@ refer to the applicable agreement for further details.
 		(pt 112 48)
 		(output)
 		(text "result[WIDTH-1..0]" (rect 75 35 177 49)(font "Arial" (font_size 8)))
-		(text "result[]" (rect 75 35 107 49)(font "Arial" (font_size 8)))
+		(text "result[]" (rect 75 35 113 49)(font "Arial" (font_size 8)))
 		(line (pt 68 48)(pt 112 48)(line_width 3))
 	)
 	(parameter
@@ -790,7 +615,7 @@ refer to the applicable agreement for further details.
 		(pt 0 32)
 		(output)
 		(text "LSBits_out[(address_width-1)..0]" (rect 0 0 159 12)(font "Arial" ))
-		(text "LSBits_out[(address_width-1)..0]" (rect 21 27 155 39)(font "Arial" ))
+		(text "LSBits_out[(address_width-1)..0]" (rect 21 27 180 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(parameter
@@ -887,6 +712,181 @@ refer to the applicable agreement for further details.
 		(rectangle (rect 16 16 248 64))
 	)
 	(annotation_block (parameter)(rect 544 464 720 502))
+)
+(symbol
+	(rect 816 312 1104 584)
+	(text "Decoder" (rect 5 0 46 12)(font "Arial" ))
+	(text "inst4" (rect 8 256 31 268)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Status[2..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "Status[2..0]" (rect 21 27 78 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "PC_now[rom_addr_width-1..0]" (rect 0 0 146 12)(font "Arial" ))
+		(text "PC_now[rom_addr_width-1..0]" (rect 21 43 167 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "Instr[31..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "Instr[31..0]" (rect 21 59 75 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 288 32)
+		(output)
+		(text "SelOp[3..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "SelOp[3..0]" (rect 221 27 276 39)(font "Arial" ))
+		(line (pt 288 32)(pt 272 32)(line_width 3))
+	)
+	(port
+		(pt 288 48)
+		(output)
+		(text "AddrRA[4..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "AddrRA[4..0]" (rect 214 43 277 55)(font "Arial" ))
+		(line (pt 288 48)(pt 272 48)(line_width 3))
+	)
+	(port
+		(pt 288 64)
+		(output)
+		(text "AddrRB[4..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "AddrRB[4..0]" (rect 214 59 277 71)(font "Arial" ))
+		(line (pt 288 64)(pt 272 64)(line_width 3))
+	)
+	(port
+		(pt 288 80)
+		(output)
+		(text "AddrRdest[4..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "AddrRdest[4..0]" (rect 202 75 279 87)(font "Arial" ))
+		(line (pt 288 80)(pt 272 80)(line_width 3))
+	)
+	(port
+		(pt 288 96)
+		(output)
+		(text "Imm32[31..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "Imm32[31..0]" (rect 212 91 278 103)(font "Arial" ))
+		(line (pt 288 96)(pt 272 96)(line_width 3))
+	)
+	(port
+		(pt 288 112)
+		(output)
+		(text "selImm" (rect 0 0 36 12)(font "Arial" ))
+		(text "selImm" (rect 237 107 273 119)(font "Arial" ))
+		(line (pt 288 112)(pt 272 112))
+	)
+	(port
+		(pt 288 128)
+		(output)
+		(text "selRAM" (rect 0 0 37 12)(font "Arial" ))
+		(text "selRAM" (rect 236 123 273 135)(font "Arial" ))
+		(line (pt 288 128)(pt 272 128))
+	)
+	(port
+		(pt 288 144)
+		(output)
+		(text "selRET" (rect 0 0 35 12)(font "Arial" ))
+		(text "selRET" (rect 238 139 273 151)(font "Arial" ))
+		(line (pt 288 144)(pt 272 144))
+	)
+	(port
+		(pt 288 160)
+		(output)
+		(text "we_RegFile" (rect 0 0 56 12)(font "Arial" ))
+		(text "we_RegFile" (rect 220 155 276 167)(font "Arial" ))
+		(line (pt 288 160)(pt 272 160))
+	)
+	(port
+		(pt 288 176)
+		(output)
+		(text "we_RAM" (rect 0 0 42 12)(font "Arial" ))
+		(text "we_RAM" (rect 232 171 274 183)(font "Arial" ))
+		(line (pt 288 176)(pt 272 176))
+	)
+	(port
+		(pt 288 192)
+		(output)
+		(text "PC_Load" (rect 0 0 44 12)(font "Arial" ))
+		(text "PC_Load" (rect 230 187 274 199)(font "Arial" ))
+		(line (pt 288 192)(pt 272 192))
+	)
+	(port
+		(pt 288 208)
+		(output)
+		(text "selrp[1..0]" (rect 0 0 49 12)(font "Arial" ))
+		(text "selrp[1..0]" (rect 226 203 275 215)(font "Arial" ))
+		(line (pt 288 208)(pt 272 208)(line_width 3))
+	)
+	(port
+		(pt 288 224)
+		(output)
+		(text "selJAL" (rect 0 0 33 12)(font "Arial" ))
+		(text "selJAL" (rect 240 219 273 231)(font "Arial" ))
+		(line (pt 288 224)(pt 272 224))
+	)
+	(parameter
+		"ROM_addr_width"
+		"5"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 272 256))
+	)
+	(annotation_block (parameter)(rect 864 272 1070 310))
+)
+(symbol
+	(rect -184 248 -96 360)
+	(text "BUSMUX" (rect 0 28 16 91)(font "Arial" (font_size 10))(vertical))
+	(text "inst10" (rect 77 3 91 37)(font "Arial" (font_size 8))(vertical))
+	(port
+		(pt 64 0)
+		(input)
+		(text "datab[WIDTH-1..0]" (rect 6 51 108 65)(font "Arial" (font_size 8)))
+		(text "datab[]" (rect 51 6 65 44)(font "Arial" (font_size 8))(vertical))
+		(line (pt 64 0)(pt 64 44)(line_width 3))
+	)
+	(port
+		(pt 88 56)
+		(input)
+		(text "sel" (rect 59 70 75 84)(font "Arial" (font_size 8)))
+		(text "sel" (rect 70 59 84 75)(font "Arial" (font_size 8))(vertical))
+		(line (pt 88 56)(pt 72 56))
+	)
+	(port
+		(pt 32 0)
+		(input)
+		(text "dataa[WIDTH-1..0]" (rect 6 19 108 33)(font "Arial" (font_size 8)))
+		(text "dataa[]" (rect 19 6 33 44)(font "Arial" (font_size 8))(vertical))
+		(line (pt 32 0)(pt 32 44)(line_width 3))
+	)
+	(port
+		(pt 48 112)
+		(output)
+		(text "result[WIDTH-1..0]" (rect 75 35 177 49)(font "Arial" (font_size 8)))
+		(text "result[]" (rect 35 75 49 113)(font "Arial" (font_size 8))(vertical))
+		(line (pt 48 68)(pt 48 112)(line_width 3))
+	)
+	(parameter
+		"WIDTH"
+		"5"
+		"Width of I/O, any integer > 0"
+		" 1" " 2" " 3" " 4" " 5" " 6" " 7" " 8" " 9" "10" "11" "12" "13" "14" "15" "16" "20" "24" "28" "32" "40" "48" "56" "64" 
+	)
+	(drawing
+		(text "0" (rect 31 52 41 56)(font "Arial" (font_size 6))(vertical))
+		(text "1" (rect 55 52 65 56)(font "Arial" (font_size 6))(vertical))
+		(line (pt 64 68)(pt 32 68))
+		(line (pt 80 44)(pt 16 44))
+		(line (pt 16 44)(pt 32 68))
+		(line (pt 80 44)(pt 64 68))
+	)
+	(flipy_rotate90)
+	(annotation_block (parameter)(rect -80 328 40 366))
 )
 (connector
 	(pt 1680 424)
@@ -1357,16 +1357,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt -112 160)
-	(pt 168 160)
-	(bus)
-)
-(connector
-	(pt -112 168)
-	(pt -112 160)
-	(bus)
-)
-(connector
 	(pt 1552 160)
 	(pt 448 160)
 	(bus)
@@ -1399,6 +1389,11 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 1928 392)
 	(pt 1952 392)
+	(bus)
+)
+(connector
+	(pt -120 160)
+	(pt 168 160)
 	(bus)
 )
 (junction (pt 488 408))
