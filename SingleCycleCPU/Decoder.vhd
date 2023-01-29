@@ -179,7 +179,7 @@ begin
 						PC_Load <= '1';
 					elsif (Operator = "0100") then
 					-- JAL (jump and link, equivalent to CALL)
-						selJAL <= '0';
+						selJAL <= '1';
 						AddrRdest <= "00001"; -- Register of Return Address (ra)
 						we_RegFile <= '1'; -- Enables writing in RegisterFile
 						PC_Load <= '1';

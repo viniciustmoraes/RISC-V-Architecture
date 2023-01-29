@@ -45,9 +45,11 @@ begin
 			if rising_edge(clk) then
 				if selrp = "01" then
 					Data_Register(2) <= std_logic_vector(signed(Data_Register(2)) - 1);
-				elsif selrp = "10" then
+				end if;
+				if selrp = "10" then
 					Data_Register(2) <= std_logic_vector(signed(Data_Register(2)) + 1);
-				elsif we='1' then
+				end if;
+				if we='1' then
 					Data_Register(to_integer(unsigned(Addr))) <= Data_in;
 				end if;
 			end if;
