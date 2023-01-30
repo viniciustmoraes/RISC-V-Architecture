@@ -1,0 +1,143 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all; 
+USE ieee.numeric_std.all;
+
+LIBRARY work;
+
+ENTITY sim IS 
+END sim;
+
+ARCHITECTURE bdf_type OF sim IS 
+
+COMPONENT alu
+	PORT(SelOp : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 X : IN signed(31 DOWNTO 0);
+		 Y : IN signed(31 DOWNTO 0);
+		 OutALU : OUT signed(31 DOWNTO 0);
+		 Status : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT registerfile
+	PORT(clk : IN STD_LOGIC;
+		 rw : IN STD_LOGIC;
+		 en : IN STD_LOGIC;
+		 rst : IN STD_LOGIC;
+		 Addr : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		 AddrRA : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		 AddrRB : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		 Data_in : IN signed(31 DOWNTO 0);
+		 OutA : OUT signed(31 DOWNTO 0);
+		 OutB : OUT signed(31 DOWNTO 0)
+	);
+END COMPONENT;
+
+COMPONENT decoder
+	PORT(clk: in std_logic;
+		 Status: in std_logic_vector(2 downto 0); -- Status from ALU (3 bits: CarryOut, isZero, isPositive)
+		 PC_now: in std_logic_vector(7 downto 0);
+		 Instruction: in std_logic_vector(31 downto 0); -- Instructions coming from ROM
+		 SelOp: out std_logic_vector(3 downto 0); -- Selects operation to perform in the ALU
+		 SelMuxRam: out std_logic; -- Selects whether to use value from RAM or from ALU
+		 SelMuxImm: out std_logic; -- Selects whether to use an immediate or OutB from the RegisterFile in the ALU
+		 Imm: out signed(31 downto 0); -- Immediate given in the instruction
+		 AddrRAM: out std_logic_vector(7 downto 0); -- Address to be accessed in the RAM
+		 PC_load: out std_logic;	-- Determines if a JUMP operation is taking place
+		 PC_Jump: out std_logic_vector(7 downto 0);	-- In case of a JUMP operation, specifies the destination
+		 EnRegFile, EnRAM, EnROM: out std_logic;
+		 rRegFile, wRegFile, rwRAM: out std_logic;
+		 AddrRA, AddrRB: out std_logic_vector(4 downto 0); -- Addresses of RA and RB in the RegisterFile (read)
+		 AddrRdest: out std_logic_vector(4 downto 0) -- Address of Rdest in the RegisterFile (store)
+	);
+END COMPONENT;
+
+SIGNAL	SYNTHESIZED_WIRE_0 :  SIGNED(31 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_1 :  SIGNED(31 DOWNTO 0);
+
+-- inputs
+signal clk: std_logic:='0';
+signal en, rst: std_logic;
+signal Data_in: signed(31 downto 0);
+signal Addr, AddrRA, AddrRB: std_logic_vector(4 downto 0);
+signal SelOp: std_logic_vector(3 downto 0);
+-- outputs
+signal OutALU: signed(31 downto 0);
+signal Status: std_logic_vector(2 downto 0);
+signal EnROM: std_logic;
+signal rRegFile: std_logic;
+signal wRegFile: std_logic;
+
+signal Instr: std_logic_vector(31 downto 0);
+signal PC_Now: std_logic_vector(7 downto 0);
+
+BEGIN 
+
+alu_inst: alu
+PORT MAP(X => SYNTHESIZED_WIRE_0,
+		 Y => SYNTHESIZED_WIRE_1,
+		 SelOp => SelOP,
+		 OutALU => OutALU,
+		 Status => Status);
+
+
+regfile_inst: registerfile
+PORT MAP(OutA => SYNTHESIZED_WIRE_0,
+		 OutB => SYNTHESIZED_WIRE_1,
+		 clk => clk,
+		 r => rRegFile,
+		 w => wRegFile,
+		 en => en,
+		 rst => rst,
+		 Data_in => OutALU,
+		 AddrRA => AddrRA,
+		 AddrRB => AddrRB,
+		 Addr => Addr);
+
+decoder_inst: decoder
+port map(SelOp => SelOp,
+	Status => Status,
+	EnROM => EnROM,
+	rRegFile => rRegFile,
+	wregfile => wregfile,
+	AddrRA => AddrRA,
+	AddrRB => AddrRB,
+	AddrRdest => Addr,
+	clk => clk,
+	PC_Now => pc_now,
+	Instruction => instr
+);
+
+-- enable register file read/write
+en <= '1';
+
+-- reset and clock
+clk <= not clk after 10 ns;
+rst <= '1', '0' after 20 ns;
+
+test: process begin
+-- wait for reset to be released
+wait until (rst = '0');
+
+-- put data in RA and RB
+Addr <= b"00001"; -- 5x"1" funcionaria?
+Data_in <= x"0000_0001";
+w <= '1'; -- write
+wait for 20 ns;
+
+Addr <= b"00010";
+Data_in <= x"1234_1234";
+w <= '1';
+wait for 20 ns;
+
+-- **here begins the ADD instruction**
+
+-- ADD rd, rs1, rs2 instruction
+-- rd = 0x1
+-- rs1 = 0x2
+-- rs2 = 0x3
+instr <= "00000000001000100001100000000000";
+wait for 50 ns; -- 5 clock cycles
+
+end process test;
+	
+END bdf_type;
