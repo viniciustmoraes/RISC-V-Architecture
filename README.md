@@ -1,5 +1,5 @@
-# CentraleSupélec Digital Systems and Computer Architecture Group Project
-## 32-bit Soft-Core CPU
+### CentraleSupélec Digital Systems and Computer Architecture Group Project
+**32-bit Soft-Core CPU**
 
 This repository contains the code for a 32-bit soft-core CPU, created as a group project for the course of Digital Systems and Computer Architecture at CentraleSupélec.
 
