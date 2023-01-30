@@ -5,10 +5,10 @@ use ieee.numeric_std.all;
 
 entity Decoder is
 	generic(
-		ROM_addr_width: integer := 8
+		ROM_addr_width: integer := 5
 		-- ROM address width, in bits
 		-- determines the number of rows in the ROM (2^addr_width)
-		-- example: width=8 --> 256 rows
+		-- example: width=5 --> 32 rows
 	);
 	port(
 		-- inputs
@@ -21,9 +21,12 @@ entity Decoder is
 		Imm32: out std_logic_vector(31 downto 0);
 		selImm: out std_logic;
 		selRAM: out std_logic;
+		selRET: out std_logic;
 		we_RegFile: out std_logic;
 		we_RAM: out std_logic;
-		PC_Load: out std_logic
+		PC_Load: out std_logic;
+		selrp: out std_logic_vector(1 downto 0);
+		selJAL: out std_logic
 	);
 end entity Decoder;
 
@@ -49,6 +52,9 @@ begin
 			when "00" => -- Rdest, RA[, RB]
 				PC_Load <= '0';
 				selImm <= '0';
+				selRET <= '0';
+				selrp <= "00";
+				selJAL <= '0';
 				if (Operator = "0000") or -- ADD
 					(Operator = "0001") or -- SUB
 					(Operator = "0010") or -- AND
@@ -74,6 +80,9 @@ begin
 			when "01" => -- Rdest, RA, Imm
 				PC_Load <= '0';
 				selImm <= '1';
+				selRET <= '0';
+				selrp <= "00";
+				selJAL <= '0';
 				if (Operator = "0000") or -- ADDI
 					(Operator = "0001") or -- SUBI
 					(Operator = "0010") or -- ANDI
@@ -104,6 +113,24 @@ begin
 					SelOp <= "0000"; -- add RAM address and offset
 					we_RegFile <= '0';
 					we_RAM <= '1';
+				elsif (Operator = "1111") then -- POP
+					AddrRdest <= Instr(10 downto 6);
+					AddrRA <= "00010"; -- RAM address of last position in stack
+					Imm12 <= "000000000000"; -- offset = 0
+					SelOp <= "0000"; -- add RAM address and offset
+					selRAM <= '1';
+					we_RegFile <= '1';
+					we_RAM <= '0';
+					selrp <= "01";
+				elsif (Operator = "0101") then -- PUSH
+					AddrRB <= Instr(10 downto 6); -- value to be stored
+					AddrRA <= "00010"; -- RAM address of last position in stack
+					Imm12 <= "000000000001"; -- offset = 0
+					SelOp <= "0000"; -- add RAM address and offset
+					we_RegFile <= '0';
+					we_RAM <= '1';
+					selrp <= "10";
+					
 				end if;
 						
 			when "11" => -- [RA, RB,] fonction 
@@ -111,9 +138,12 @@ begin
 					we_RegFile <= '0';
 					we_RAM <= '0';
 					selImm <= '0';
+					selRET <= '0';
 					AddrRA <= Instr(10 downto 6);
 					AddrRB <= Instr(15 downto 11);
 					Imm12 <= Instr(27 downto 16); -- ROM address of the branching function
+					selrp <= "00";
+					selJAL <= '0';
 					
 					if (Operator = "0000") then
 					-- BEQ (branch if equal)
@@ -144,6 +174,21 @@ begin
 						else
 							PC_Load <= '0';
 						end if;
+					elsif (Operator = "0011") then
+					-- J (jump)
+						PC_Load <= '1';
+					elsif (Operator = "0100") then
+					-- JAL (jump and link, equivalent to CALL)
+						selJAL <= '1';
+						AddrRdest <= "00001"; -- Register of Return Address (ra)
+						we_RegFile <= '1'; -- Enables writing in RegisterFile
+						PC_Load <= '1';
+					elsif (Operator = "0101") then
+					-- RET (return to function)
+						AddrRA <= "00001";
+						selRET <= '1';
+						PC_Load <= '1';
+					
 					end if;
 					
 			when others =>

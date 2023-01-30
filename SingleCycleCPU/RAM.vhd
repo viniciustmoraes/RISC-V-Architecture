@@ -40,7 +40,8 @@ begin
 	Data_outB <= Data_Ram(to_integer(unsigned(AdressB)));
 
 	-- write to RAM (sync)
-	write_to_RAM:process(rst, clk) begin
+	write_to_RAM:
+	process(rst, clk) begin
 		if rst='1' then
 			for k in 0 to 2**address_width-1 loop
 				Data_Ram(k) <= (others=>'0');
