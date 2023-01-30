@@ -4,10 +4,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity BusSplitter is
 	generic(
-			address_width : integer := 8
+			address_width : integer := 5
 			-- RAM address width, in bits
 			-- determines the number of rows in memory (2^address_width)
-			-- example: address_width=8 --> RAM has 256 rows
+			-- example: address_width=8 --> ROM has 32 rows
 	);
 	port(
 			Bus_in	:	in std_logic_vector(31 downto 0); -- OutALU is 32 bits long
