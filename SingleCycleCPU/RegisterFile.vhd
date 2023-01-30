@@ -11,8 +11,10 @@ entity RegisterFile is
 			rst: in std_logic; -- Reset (rst)
 			Data_in: in std_logic_vector(31 downto 0); -- Each register holds 32 bit information
 			AddrRA, AddrRB: in std_logic_vector(4 downto 0);
-			OutA, OutB:	out std_logic_vector(31 downto 0);
+			OutA, OutB:	out std_logic_vector(31 downto 0)
 			selrp: in std_logic_vector(1 downto 0) -- Select actualisation of register stack pointer
+      AddrDisplay : in std_logic_vector(4 downto 0); -- for fpga board interface
+			OutDisplay:	out std_logic_vector(31 downto 0); -- idem
 			);
 end RegisterFile;
 
@@ -35,8 +37,8 @@ begin
 
 -- register x0 (zero) hardwired to 0
 -- rst signal resets all registers
-	writing:
-	process(rst, clk) begin		
+
+	writing:process(rst, clk) begin		
 		if rst='1' then
 			for k in 0 to 31 loop
 				Data_Register(k) <= (others=>'0');
@@ -56,8 +58,7 @@ begin
 		end if;
 	end process writing;
 	
-	reading:
-	process(AddrRA, AddrRB) begin
+	reading:process(AddrRA, AddrRB) begin
 		if (AddrRA = b"00000") then
 			OutA <= x"00000000"; -- address x0 always outputs 0
 		else
@@ -69,5 +70,14 @@ begin
 			OutB <= Data_Register(to_integer(unsigned(AddrRB)));
 		end if;
 	end process reading;
+	
+
+	displayReading:process(AddrDisplay) begin
+		if (AddrDisplay = b"00000") then
+			OutDisplay <= x"00000000"; -- address x0 always outputs 0
+		else
+			OutDisplay <= Data_Register(to_integer(unsigned(AddrRB)));
+		end if;
+	end process displayReading;
 
 end register_file;

@@ -27,9 +27,16 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 32)
 		(input)
-		(text "Addr_in[(addr_width-1)..0]" (rect 0 0 103 12)(font "Arial" ))
-		(text "Addr_in[(addr_width-1)..0]" (rect 21 27 124 39)(font "Arial" ))
+		(text "Adress[(addr_width-1)..0]" (rect 0 0 101 12)(font "Arial" ))
+		(text "Adress[(addr_width-1)..0]" (rect 21 27 122 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "Switches[3..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "Switches[3..0]" (rect 21 43 75 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
 		(pt 264 32)
@@ -40,7 +47,7 @@ https://fpgasoftware.intel.com/eula.
 	)
 	(parameter
 		"addr_width"
-		"8"
+		"5"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

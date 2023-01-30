@@ -9,7 +9,7 @@ entity ram is
 			rw,en		:	in std_logic;
 			clk		:	in std_logic;
 			rst		:	in std_logic;
-			Adress	:	in std_logic_vector(7 downto 0); -- 8 bits address, meaning 128 rows = 4 kb
+			Adress	:	in std_logic_vector(7 downto 0); -- 8 bits address, meaning 256 rows
 			Data_in	:	in signed(31 downto 0); -- Data is defined here as being 32 bits long
 			Data_out:	out signed(31 downto 0) -- Data is defined here as being 32 bits long
 			);
